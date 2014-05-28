@@ -18,14 +18,15 @@ module Eventbrite
       "#{self.class.url}/#{CGI.escape(id)}"
     end
 
-    def load(response)
-      self.deep_merge!(response)
+    def refresh
+      response = Eventbrite.request(:get, url, @retrieve_options)
+      refresh_from(response)
+      self
     end
 
     def self.retrieve(id)
-      instance = self.new
-      instance.id = id
-      instance.load(Eventbrite.request(:get, instance.url))
+      instance = self.new(id)
+      instance.refresh
       instance
     end
   end

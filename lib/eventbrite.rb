@@ -6,7 +6,7 @@ require 'byebug'
 require 'eventbrite/version'
 
 # Util
-require 'eventbrite/util/special_hash'
+require 'eventbrite/util'
 
 # Resources
 require 'eventbrite/eventbrite_object'
@@ -72,8 +72,7 @@ module Eventbrite
 private
 
   def self.uri_encode(params)
-    Util.flatten_params(params).
-      map { |k,v| "#{k}=#{Util.url_encode(v)}" }.join('&')
+    Util.flatten_params(params).map { |k,v| "#{k}=#{Util.url_encode(v)}" }.join('&')
   end
 
   def self.request_headers(token)
@@ -98,7 +97,7 @@ private
       raise general_api_error(response.code, response.body)
     end
 
-    # Util.symbolize_names(response)
+    Util.symbolize_names(response)
   end
 
   def self.general_api_error(rcode, rbody)
@@ -108,6 +107,7 @@ private
   def self.handle_api_error(rcode, rbody)
     begin
       error = JSON.parse(rbody)
+      error = Util.symbolize_names(error)
     rescue JSON::ParserError
       raise general_api_error(rcode, rbody)
     end
@@ -115,11 +115,11 @@ private
     case rcode
     when 400, 404
       # TODO: fix this
-      raise InvalidRequestError.new(error['error_description'], error['param'], rcode, rbody, error)
+      raise InvalidRequestError.new(error[:error_description], error[:param], rcode, rbody, error)
     when 401
-      raise AuthenticationError.new(error['error_description'], rcode, rbody, error)
+      raise AuthenticationError.new(error[:error_description], rcode, rbody, error)
     else
-      raise APIError.new(error['error_description'], rcode, rbody, error)
+      raise APIError.new(error[:error_description], rcode, rbody, error)
     end
   end
 end
