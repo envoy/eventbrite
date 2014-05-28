@@ -1,7 +1,17 @@
 require 'rest_client'
+require 'hashie'
 require 'byebug'
 
+# Version
 require 'eventbrite/version'
+
+# Util
+require 'eventbrite/util/special_hash'
+
+# Resources
+require 'eventbrite/eventbrite_object'
+require 'eventbrite/api_resource'
+require 'eventbrite/event'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
