@@ -6,6 +6,7 @@ require 'eventbrite/version'
 # Errors
 require 'eventbrite/errors/eventbrite_error'
 require 'eventbrite/errors/api_error'
+require 'eventbrite/errors/authentication_error'
 require 'eventbrite/errors/invalid_request_error'
 
 module Eventbrite
@@ -105,6 +106,8 @@ private
     when 400, 404
       # TODO: fix this
       raise InvalidRequestError.new(error['error_description'], error['param'], rcode, rbody, error)
+    when 401
+      raise AuthenticationError.new(error['error_description'], rcode, rbody, error)
     else
       raise APIError.new(error['error_description'], rcode, rbody, error)
     end
