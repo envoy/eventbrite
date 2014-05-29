@@ -1,6 +1,5 @@
 require 'rest_client'
 require 'hashie'
-require 'byebug'
 
 # Version
 require 'eventbrite/version'
