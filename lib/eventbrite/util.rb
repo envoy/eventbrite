@@ -1,8 +1,8 @@
 module Eventbrite
   module Util
     def self.object_classes
-      # TODO: fix this
       @object_classes ||= {
+        events: Event
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,
@@ -21,14 +21,14 @@ module Eventbrite
       }
     end
 
-    def self.convert_to_eventbrite_object(resp)
+    def self.convert_to_eventbrite_object(resp, parent=nil)
       # TODO: fix this
       case resp
       when Array
-        resp.map { |i| convert_to_eventbrite_object(i) }
+        resp.map { |i| convert_to_eventbrite_object(i, parent) }
       when Hash
         # Try converting to a known object class.  If none available, fall back to generic EventbriteObject
-        object_classes.fetch(resp[:object], EventbriteObject).construct_from(resp)
+        object_classes.fetch(parent, EventbriteObject).construct_from(resp)
       else
         resp
       end

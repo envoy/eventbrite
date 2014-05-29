@@ -60,7 +60,7 @@ module Eventbrite
       end
       values.each do |k, v|
         # TODO: fix this
-        @values[k] = Util.convert_to_eventbrite_object(v)
+        @values[k] = Util.convert_to_eventbrite_object(v, k)
         @transient_values.delete(k)
         @unsaved_values.delete(k)
       end
