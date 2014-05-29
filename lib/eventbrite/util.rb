@@ -3,7 +3,8 @@ module Eventbrite
     def self.object_classes
       @object_classes ||= {
         events: Event,
-        categories: Category
+        categories: Category,
+        attendees: Attendee
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,
