@@ -12,6 +12,8 @@ require 'eventbrite/util'
 require 'eventbrite/eventbrite_object'
 require 'eventbrite/api_resource'
 require 'eventbrite/event'
+require 'eventbrite/category'
+require 'eventbrite/user'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
