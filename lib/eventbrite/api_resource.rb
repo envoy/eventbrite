@@ -18,6 +18,12 @@ module Eventbrite
       "#{self.class.url}/#{CGI.escape(id)}"
     end
 
+    def refresh_from_url(url, params)
+      response = Eventbrite.request(:get, url, params)
+      refresh_from(response)
+      self
+    end
+
     def refresh
       response = Eventbrite.request(:get, url, @retrieve_options)
       refresh_from(response)

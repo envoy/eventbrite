@@ -22,6 +22,7 @@ module Eventbrite
     end
 
     def self.convert_to_eventbrite_object(resp)
+      # TODO: fix this
       case resp
       when Array
         resp.map { |i| convert_to_eventbrite_object(i) }
