@@ -34,6 +34,13 @@ Eventbrite::Event.search({q: 'Dogecoin'})
 Eventbrite::Event.search({q: 'Dogecoin'}, 'your_access_token')
 ```
 
+### [Event Search](http://developer.eventbrite.com/docs/event-search/)
+
+```ruby
+# For supported parameters, check out the link above.
+Eventbrite::Event.searh({q: 'Dogecoin'})
+```
+
 ## Contributing
 
 1. Fork it
