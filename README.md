@@ -41,6 +41,12 @@ Eventbrite::Event.search({q: 'Dogecoin'}, 'your_access_token')
 Eventbrite::Event.searh({q: 'Dogecoin'})
 ```
 
+### [Event Categories](http://developer.eventbrite.com/docs/event-categories/)
+
+```ruby
+Eventbrite::Category.all
+```
+
 ## Contributing
 
 1. Fork it
