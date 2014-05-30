@@ -44,6 +44,18 @@ module Eventbrite
       "#<#{self.class}:0x#{self.object_id.to_s(16)}#{id_string}> JSON: " + JSON.pretty_generate(@values)
     end
 
+    def paginated?
+      self.respond_to?(:pagination)
+    end
+
+    def next?
+      paginated? && (self.pagination.page_number < self.pagination.page_count)
+    end
+
+    def next_page
+      self.pagination.page_number + 1
+    end
+
     def refresh_from(values, token, partial=false)
       @token = token
 
