@@ -1,6 +1,6 @@
 # Eventbrite
 
-TODO: Write a gem description
+[Eventbrite](http://developer.eventbrite.com/docs/) rubygem for API v3.
 
 ## Installation
 
