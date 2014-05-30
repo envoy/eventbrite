@@ -7,13 +7,15 @@ require 'eventbrite/version'
 # Util
 require 'eventbrite/util'
 
-# Resources
+# Base
 require 'eventbrite/eventbrite_object'
 require 'eventbrite/api_resource'
-require 'eventbrite/event'
-require 'eventbrite/category'
-require 'eventbrite/user'
-require 'eventbrite/attendee'
+
+# Resources
+require 'eventbrite/resources/event'
+require 'eventbrite/resources/category'
+require 'eventbrite/resources/user'
+require 'eventbrite/resources/attendee'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
@@ -33,7 +35,7 @@ module Eventbrite
     "#{@api_base}/#{api_version}#{url}"
   end
 
-  def self.request(method, url, params={})
+  def self.request(method, url, token, params={})
     unless token ||= @token
       raise AuthenticationError.new('No access token provided. Set your token using "Eventbrite.token = <access-token>"."')
     end
@@ -68,7 +70,7 @@ module Eventbrite
       end
     end
 
-    parse(response)
+    [parse(response), token]
   end
 
 private
@@ -117,7 +119,7 @@ private
     case rcode
     when 400, 404
       # TODO: fix this
-      raise InvalidRequestError.new(error[:error_description], error[:param], rcode, rbody, error)
+      raise InvalidRequestError.new(error[:error_description], rcode, rbody, error)
     when 401
       raise AuthenticationError.new(error[:error_description], rcode, rbody, error)
     else

@@ -23,14 +23,14 @@ module Eventbrite
       }
     end
 
-    def self.convert_to_eventbrite_object(resp, parent=nil)
+    def self.convert_to_eventbrite_object(resp, token, parent=nil)
       # TODO: fix this
       case resp
       when Array
-        resp.map { |i| convert_to_eventbrite_object(i, parent) }
+        resp.map { |i| convert_to_eventbrite_object(i, token, parent) }
       when Hash
         # Try converting to a known object class.  If none available, fall back to generic EventbriteObject
-        object_classes.fetch(parent, EventbriteObject).construct_from(resp)
+        object_classes.fetch(parent, EventbriteObject).construct_from(resp, token)
       else
         resp
       end

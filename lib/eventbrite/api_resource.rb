@@ -13,25 +13,19 @@ module Eventbrite
 
     def url
       unless id = self.id
-        raise InvalidRequestError.new("Could not determine which URL to request: #{self.class} instance has invalid ID: #{id.inspect}", 'id')
+        raise InvalidRequestError.new("Could not determine which URL to request: #{self.class} instance has invalid ID: #{id.inspect}")
       end
       "#{self.class.url}/#{CGI.escape(id)}"
     end
 
-    def refresh_from_url(url, params)
-      response = Eventbrite.request(:get, url, params)
-      refresh_from(response)
-      self
-    end
-
     def refresh
-      response = Eventbrite.request(:get, url, @retrieve_options)
-      refresh_from(response)
+      response, token = Eventbrite.request(:get, url, @token, @retrieve_options)
+      refresh_from(response, token)
       self
     end
 
-    def self.retrieve(id)
-      instance = self.new(id)
+    def self.retrieve(id, token=nil)
+      instance = self.new(id, token)
       instance.refresh
       instance
     end

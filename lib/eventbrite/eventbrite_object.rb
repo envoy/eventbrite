@@ -2,14 +2,15 @@ module Eventbrite
   class EventbriteObject
     include Enumerable
 
-    @@permanent_attributes = Set.new([:id])
+    attr_accessor :token
+    @@permanent_attributes = Set.new([:id, :token])
 
     # The default :id method is deprecated and isn't useful to us
     if method_defined?(:id)
       undef :id
     end
 
-    def initialize(id=nil)
+    def initialize(id=nil, token=nil)
       # parameter overloading!
       if id.kind_of?(Hash)
         @retrieve_options = id.dup
@@ -19,6 +20,7 @@ module Eventbrite
         @retrieve_options = {}
       end
 
+      @token = token
       @values = {}
       # This really belongs in APIResource, but not putting it there allows us
       # to have a unified inspect method
@@ -27,9 +29,9 @@ module Eventbrite
       self.id = id if id
     end
 
-    def self.construct_from(values)
-      obj = self.new(values[:id])
-      obj.refresh_from(values)
+    def self.construct_from(values, token=nil)
+      obj = self.new(values[:id], token)
+      obj.refresh_from(values, token)
       obj
     end
 
@@ -42,7 +44,9 @@ module Eventbrite
       "#<#{self.class}:0x#{self.object_id.to_s(16)}#{id_string}> JSON: " + JSON.pretty_generate(@values)
     end
 
-    def refresh_from(values, partial=false)
+    def refresh_from(values, token, partial=false)
+      @token = token
+
       removed = partial ? Set.new : Set.new(@values.keys - values.keys)
       added = Set.new(values.keys - @values.keys)
       # Wipe old state before setting new.  This is useful for e.g. updating a
@@ -60,7 +64,7 @@ module Eventbrite
       end
       values.each do |k, v|
         # TODO: fix this
-        @values[k] = Util.convert_to_eventbrite_object(v, k)
+        @values[k] = Util.convert_to_eventbrite_object(v, token, k)
         @transient_values.delete(k)
         @unsaved_values.delete(k)
       end
