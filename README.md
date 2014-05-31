@@ -47,6 +47,13 @@ Eventbrite::Event.searh({q: 'Dogecoin'})
 Eventbrite::Category.all
 ```
 
+### [Event Details](http://developer.eventbrite.com/docs/event-details/)
+
+```ruby
+# Get the details for the event with event_id = 11669522857
+Eventbrite::Event.retrieve('11669522857')
+```
+
 ## Contributing
 
 1. Fork it
