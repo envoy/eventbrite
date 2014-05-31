@@ -59,8 +59,22 @@ Eventbrite::Event.retrieve('11669522857')
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::Attendees.all({ event_id: '11669522857' })
+Eventbrite::Attendee.all({ event_id: '11669522857' })
 ```
+
+### [Event Attendees’ Details](http://developer.eventbrite.com/docs/event-attendees-details/)
+
+```ruby
+Eventbrite::Attendee.retrieve('event_id', 'attendee_id')
+```
+
+## Todo
+
+* Event Atteedees' Details API should support parameters
+
+## Thanks
+
+* [Stripe Rubygem](https://github.com/stripe/stripe-ruby)
 
 ## Contributing
 
