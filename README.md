@@ -58,7 +58,7 @@ Eventbrite::Event.retrieve('event_id')
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::Attendee.all({ event_id: '11669522857' })
+Eventbrite::Attendee.all({ event_id: 'event_id' })
 ```
 
 ### [Event Attendees’ Details](http://developer.eventbrite.com/docs/event-attendees-details/)
@@ -72,7 +72,7 @@ Eventbrite::Attendee.retrieve('event_id', 'attendee_id')
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::Order.all({ event_id: '11669522857' })
+Eventbrite::Order.all({ event_id: 'event_id' })
 ```
 
 ### [Event Discounts](http://developer.eventbrite.com/docs/event-discounts/)
@@ -80,7 +80,7 @@ Eventbrite::Order.all({ event_id: '11669522857' })
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::Discount.all({ event_id: '11669522857' })
+Eventbrite::Discount.all({ event_id: 'event_id' })
 ```
 
 ### [Event Access Codes](http://developer.eventbrite.com/doc/event-access-codes/)
@@ -88,7 +88,14 @@ Eventbrite::Discount.all({ event_id: '11669522857' })
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::AccessCode.all({ event_id: '11669522857' })
+Eventbrite::AccessCode.all({ event_id: event_id' })
+```
+
+### [Event Transfers](http://developer.eventbrite.com/docs/event-transfers/)
+
+```ruby
+# The parameter `event_id` is required.
+Eventbrite::Transfer.all({ event_id: 'event_id' })
 ```
 
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)

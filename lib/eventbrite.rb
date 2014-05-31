@@ -20,6 +20,7 @@ require 'eventbrite/resources/attendee'
 require 'eventbrite/resources/order'
 require 'eventbrite/resources/discount'
 require 'eventbrite/resources/access_code'
+require 'eventbrite/resources/transfer'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'

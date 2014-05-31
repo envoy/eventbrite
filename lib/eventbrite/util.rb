@@ -7,7 +7,8 @@ module Eventbrite
         attendees: Attendee,
         orders: Order,
         discouns: Discount,
-        access_codes: AccessCode
+        access_codes: AccessCode,
+        transfers: Transfer
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,
