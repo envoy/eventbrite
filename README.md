@@ -83,6 +83,14 @@ Eventbrite::Order.all({ event_id: '11669522857' })
 Eventbrite::Discount.all({ event_id: '11669522857' })
 ```
 
+### [Event Access Codes](http://developer.eventbrite.com/doc/event-access-codes/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `event_id` is required.
+Eventbrite::AccessCode.all({ event_id: '11669522857' })
+```
+
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)
 
 ```ruby
@@ -92,6 +100,7 @@ Eventbrite::Order.retrieve('order_id')
 ## Todo
 
 * Event Atteedees' Details API should support parameters
+* POST/UPDATE/DELETE request for the API
 
 ## Thanks
 

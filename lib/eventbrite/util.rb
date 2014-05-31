@@ -5,7 +5,9 @@ module Eventbrite
         events: Event,
         categories: Category,
         attendees: Attendee,
-        orders: Order
+        orders: Order,
+        discouns: Discount,
+        access_codes: AccessCode
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,
