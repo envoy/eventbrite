@@ -8,7 +8,8 @@ module Eventbrite
         orders: Order,
         discouns: Discount,
         access_codes: AccessCode,
-        transfers: Transfer
+        transfers: Transfer,
+        teams: Team
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,

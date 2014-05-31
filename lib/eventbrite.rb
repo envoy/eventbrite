@@ -21,6 +21,7 @@ require 'eventbrite/resources/order'
 require 'eventbrite/resources/discount'
 require 'eventbrite/resources/access_code'
 require 'eventbrite/resources/transfer'
+require 'eventbrite/resources/team'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'

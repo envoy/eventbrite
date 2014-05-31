@@ -98,6 +98,25 @@ Eventbrite::AccessCode.all({ event_id: event_id' })
 Eventbrite::Transfer.all({ event_id: 'event_id' })
 ```
 
+### [Event Teams](http://developer.eventbrite.com/docs/event-teams/)
+
+```ruby
+# The parameter `event_id` is required.
+Eventbrite::Team.all({ event_id: 'event_id' })
+```
+
+### [Event Teams Details](http://developer.eventbrite.com/docs/event-teams-details/)
+
+```ruby
+Eventbrite::Team.retrieve('event_id', 'team_id')
+```
+
+### [Event Teams’ Attendees](http://developer.eventbrite.com/docs/event-teams-attendees/)
+
+```ruby
+Eventbrite::Team.attendees('event_id', 'team_id')
+```
+
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)
 
 ```ruby
