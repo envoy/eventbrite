@@ -10,6 +10,7 @@ require 'eventbrite/util'
 # Base
 require 'eventbrite/eventbrite_object'
 require 'eventbrite/api_resource'
+require 'eventbrite/api_array_resource'
 
 # Resources
 require 'eventbrite/resources/event'
@@ -17,6 +18,7 @@ require 'eventbrite/resources/category'
 require 'eventbrite/resources/user'
 require 'eventbrite/resources/attendee'
 require 'eventbrite/resources/order'
+require 'eventbrite/resources/discount'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'

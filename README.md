@@ -75,6 +75,14 @@ Eventbrite::Attendee.retrieve('event_id', 'attendee_id')
 Eventbrite::Order.all({ event_id: '11669522857' })
 ```
 
+### [Event Discounts](http://developer.eventbrite.com/docs/event-discounts/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `event_id` is required.
+Eventbrite::Discount.all({ event_id: '11669522857' })
+```
+
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)
 
 ```ruby

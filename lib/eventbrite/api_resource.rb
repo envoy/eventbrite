@@ -1,7 +1,8 @@
 module Eventbrite
   class APIResource < EventbriteObject
     def self.class_name
-      self.name.split('::')[-1]
+      name_without_namespace = self.name.split('::')[-1]
+      name_without_namespace.gsub(/([^\^])([A-Z])/,'\1_\2').downcase
     end
 
     def self.url
