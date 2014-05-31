@@ -50,8 +50,7 @@ Eventbrite::Category.all
 ### [Event Details](http://developer.eventbrite.com/docs/event-details/)
 
 ```ruby
-# Get the details for the event with event_id = 11669522857
-Eventbrite::Event.retrieve('11669522857')
+Eventbrite::Event.retrieve('event_id')
 ```
 
 ### [Event Attendees](http://developer.eventbrite.com/docs/event-attendees/)
@@ -66,6 +65,20 @@ Eventbrite::Attendee.all({ event_id: '11669522857' })
 
 ```ruby
 Eventbrite::Attendee.retrieve('event_id', 'attendee_id')
+```
+
+### [Event Orders](http://developer.eventbrite.com/docs/event-orders/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `event_id` is required.
+Eventbrite::Order.all({ event_id: '11669522857' })
+```
+
+### [Order Details](http://developer.eventbrite.com/docs/order-details/)
+
+```ruby
+Eventbrite::Order.retrieve('order_id')
 ```
 
 ## Todo
