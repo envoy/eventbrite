@@ -54,6 +54,14 @@ Eventbrite::Category.all
 Eventbrite::Event.retrieve('11669522857')
 ```
 
+### [Event Attendees](http://developer.eventbrite.com/docs/event-attendees/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `event_id` is required.
+Eventbrite::Attendees.all({ event_id: '11669522857' })
+```
+
 ## Contributing
 
 1. Fork it
