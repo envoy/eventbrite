@@ -174,6 +174,20 @@ Eventbrite::User.organizers({ user_id: 'user_id' })
 Eventbrite::Order.retrieve('order_id')
 ```
 
+### [Contact Lists](http://developer.eventbrite.com/docs/contact-lists/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `user_id` is required.
+Eventbrite::ContactList.all({ user_id: 'user_id' })
+```
+
+### [Contact List Details](http://developer.eventbrite.com/docs/contact-list-details/)
+
+```ruby
+Eventbrite::ContactList.retrieve('user_id', 'contact_list_id')
+```
+
 ## Todo
 
 * Event Atteedees' Details API should support parameters
