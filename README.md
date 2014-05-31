@@ -88,7 +88,7 @@ Eventbrite::Discount.all({ event_id: 'event_id' })
 ```ruby
 # For supported parameters, check out the link above.
 # Also, the parameter `event_id` is required.
-Eventbrite::AccessCode.all({ event_id: event_id' })
+Eventbrite::AccessCode.all({ event_id: 'event_id' })
 ```
 
 ### [Event Transfers](http://developer.eventbrite.com/docs/event-transfers/)
@@ -115,6 +115,57 @@ Eventbrite::Team.retrieve('event_id', 'team_id')
 
 ```ruby
 Eventbrite::Team.attendees('event_id', 'team_id')
+```
+
+### [User Details](http://developer.eventbrite.com/docs/user-details/)
+
+```ruby
+Eventbrite::User.retrieve('user_id')
+```
+
+### [User Orders](http://developer.eventbrite.com/docs/user-orders/)
+
+```ruby
+# The parameter `user_id` is required.
+Eventbrite::User.orders({ user_id: 'user_id' })
+```
+
+### [User Owned Events](http://developer.eventbrite.com/docs/user-owned-events/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `user_id` is required.
+Eventbrite::User.owned_events({ user_id: 'user_id' })
+```
+
+### [User Owned Events’ Orders](http://developer.eventbrite.com/docs/user-owned-events-orders/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `user_id` is required.
+Eventbrite::User.owned_event_orders({ user_id: 'user_id' })
+```
+
+### [User Owned Event’s Attendees](http://developer.eventbrite.com/docs/user-owned-events-attendees/)
+
+```ruby
+# For supported parameters, check out the link above.
+# Also, the parameter `user_id` is required.
+Eventbrite::User.owned_event_attendees({ user_id: 'user_id' })
+```
+
+### [User Venues](http://developer.eventbrite.com/docs/user-venues/)
+
+```ruby
+# The parameter `user_id` is required.
+Eventbrite::User.venues({ user_id: 'user_id' })
+```
+
+### [User Organizers](http://developer.eventbrite.com/user-organizers/)
+
+```ruby
+# The parameter `user_id` is required.
+Eventbrite::User.organizers({ user_id: 'user_id' })
 ```
 
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)
