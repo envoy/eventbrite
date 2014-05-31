@@ -208,6 +208,7 @@ Eventbrite::ContactList.retrieve('user_id', 'contact_list_id')
 
 * Event Atteedees' Details API should support parameters
 * POST/UPDATE/DELETE request for the API
+* Support for chained method
 
 ## Thanks
 
