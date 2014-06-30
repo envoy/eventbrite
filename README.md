@@ -48,7 +48,7 @@ events.paginated? # => true
 all_events = events.events
 while events.next?
   events = Eventbrite::Event.searh({q: 'Dogecoin', page: events.next_page})
-  all_events << events.events
+  all_events.concat(events.events)
 end
 ```
 
