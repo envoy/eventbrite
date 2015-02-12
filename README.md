@@ -4,8 +4,6 @@
 
 ## Installation
 
-NOTE: PLEASE NOTE THAT WE ARE STILL TRYING TO ACQUIRE THE GEM NAME `eventbrite`.
-
 Add this line to your application's Gemfile:
 
     gem 'eventbrite'
