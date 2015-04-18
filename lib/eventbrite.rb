@@ -31,19 +31,29 @@ require 'eventbrite/errors/authentication_error'
 require 'eventbrite/errors/invalid_request_error'
 
 module Eventbrite
-  @api_base = 'https://www.eventbriteapi.com'
-  @api_version = 'v3'
+  DEFAULTS = {
+    api_base: 'https://www.eventbriteapi.com',
+    api_version: 'v3'
+  }
 
   class << self
-    attr_accessor :api_base, :api_version, :token
+    [:api_base, :api_version, :token].each do |key|
+      define_method "#{key}=" do |value|
+        Thread.current["eventbrite_#{key}"] = value
+      end
+
+      define_method key do
+        Thread.current["eventbrite_#{key}"] || DEFAULTS[key]
+      end
+    end
   end
 
   def self.api_url(url='')
-    "#{@api_base}/#{api_version}#{url}"
+    "#{api_base}/#{api_version}#{url}"
   end
 
   def self.request(method, url, token, params={})
-    unless token ||= @token
+    unless token ||= self.token
       raise AuthenticationError.new('No access token provided. Set your token using "Eventbrite.token = <access-token>"."')
     end
 
