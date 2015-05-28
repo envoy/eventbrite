@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Eventbrite::VERSION
   spec.authors       = ["Teng Siong Ong"]
   spec.email         = ["siong1987@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Eventbrite rubygem for API v3.}
+  spec.summary       = %q{Eventbrite rubygem for API v3.}
+  spec.homepage      = "https://github.com/envoy/eventbrite"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
