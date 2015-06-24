@@ -39,7 +39,7 @@ Eventbrite::Event.search({q: 'Dogecoin'}, 'your_access_token')
 Please not that not all APIs have pagination.
 
 ```ruby
-events = Eventbrite::Event.searh({q: 'Dogecoin'})
+events = Eventbrite::Event.search({q: 'Dogecoin'})
 events.paginated? # => true
 
 # Get all events
