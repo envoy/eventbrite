@@ -173,8 +173,11 @@ Eventbrite::User.owned_event_attendees({ user_id: 'user_id' })
 ### [User Venues](http://developer.eventbrite.com/docs/user-venues/)
 
 ```ruby
+# Retrieve a User’s Venues
 # The parameter `user_id` is required.
 Eventbrite::User.venues({ user_id: 'user_id' })
+# Retrieve a Venue
+Eventbrite::Venue.retrieve('venue_id')
 ```
 
 ### [User Organizers](http://developer.eventbrite.com/docs/user-organizers/)

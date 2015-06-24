@@ -23,6 +23,7 @@ require 'eventbrite/resources/access_code'
 require 'eventbrite/resources/transfer'
 require 'eventbrite/resources/team'
 require 'eventbrite/resources/contact_list'
+require 'eventbrite/resources/venue'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
