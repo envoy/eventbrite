@@ -9,7 +9,8 @@ module Eventbrite
         discouns: Discount,
         access_codes: AccessCode,
         transfers: Transfer,
-        teams: Team
+        teams: Team,
+        webhooks: Webhook
         # 'balance' => Balance,
         # 'balance_transaction' => BalanceTransaction,
         # 'charge' => Charge,

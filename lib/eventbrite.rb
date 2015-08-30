@@ -24,6 +24,7 @@ require 'eventbrite/resources/transfer'
 require 'eventbrite/resources/team'
 require 'eventbrite/resources/contact_list'
 require 'eventbrite/resources/venue'
+require 'eventbrite/resources/webhook'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
@@ -107,7 +108,13 @@ private
   end
 
   def self.execute_request(opts)
-    RestClient::Request.execute(opts)
+    RestClient::Request.execute(opts){ |response, request, result, &block|
+      if [301, 302, 307].include? response.code
+        response.follow_redirection(request, result, &block)
+      else
+        response.return!(request, result, &block)
+      end
+    }
   end
 
   def self.parse(response)

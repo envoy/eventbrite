@@ -207,6 +207,21 @@ Eventbrite::ContactList.all({ user_id: 'user_id' })
 Eventbrite::ContactList.retrieve('user_id', 'contact_list_id')
 ```
 
+### [Webhooks](http://www.eventbrite.com/developer/v3/endpoints/webhooks/)
+
+```ruby
+# Retrieve a Webhook.
+Eventbrite::Webhook.retrieve('webhook_id')
+
+# Create a Webhook.
+# See above link for supported parameters. 
+Eventbrite::Webhook.create({endpoint_url: 'your_webhooks_endpoint_url'})
+
+# Delete a Webhook.
+Eventbrite::Webhook.delete('webhook_id')
+
+```
+
 ## Todo
 
 * Event Atteedees' Details API should support parameters
