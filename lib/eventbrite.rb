@@ -15,6 +15,7 @@ require 'eventbrite/api_array_resource'
 # Resources
 require 'eventbrite/resources/event'
 require 'eventbrite/resources/category'
+require 'eventbrite/resources/subcategory'
 require 'eventbrite/resources/user'
 require 'eventbrite/resources/attendee'
 require 'eventbrite/resources/order'
