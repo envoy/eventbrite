@@ -63,6 +63,12 @@ Eventbrite::Event.searh({q: 'Dogecoin'})
 Eventbrite::Category.all
 ```
 
+### [Event Subcategories](https://www.eventbrite.com/developer/v3/endpoints/categories/#ebapi-get-subcategories/)
+
+```ruby
+Eventbrite::Subcategory.all
+```
+
 ### [Event Details](http://developer.eventbrite.com/docs/event-details/)
 
 ```ruby
