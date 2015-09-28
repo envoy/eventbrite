@@ -69,6 +69,12 @@ Eventbrite::Category.all
 Eventbrite::Subcategory.all
 ```
 
+### [Event Formats](https://www.eventbrite.com/developer/v3/endpoints/formats/)
+
+```ruby
+Eventbrite::Format.all
+```
+
 ### [Event Details](http://developer.eventbrite.com/docs/event-details/)
 
 ```ruby
