@@ -13,7 +13,7 @@ module Eventbrite
       private
 
       define_singleton_method "#{m}_url" do |user_id|
-        "/#{CGI.escape(class_name.downcase)}s/#{user_id}/#{m}"
+        "/#{CGI.escape(class_name.downcase)}s/#{user_id}/#{m}/"
       end
     end
   end
