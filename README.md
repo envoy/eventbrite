@@ -45,7 +45,7 @@ events.paginated? # => true
 # Get all events
 all_events = events.events
 while events.next?
-  events = Eventbrite::Event.searh({q: 'Dogecoin', page: events.next_page})
+  events = Eventbrite::Event.search({q: 'Dogecoin', page: events.next_page})
   all_events.concat(events.events)
 end
 ```
@@ -54,7 +54,7 @@ end
 
 ```ruby
 # For supported parameters, check out the link above.
-Eventbrite::Event.searh({q: 'Dogecoin'})
+Eventbrite::Event.search({q: 'Dogecoin'})
 ```
 
 ### [Event Categories](http://developer.eventbrite.com/docs/event-categories/)
@@ -226,7 +226,7 @@ Eventbrite::ContactList.retrieve('user_id', 'contact_list_id')
 Eventbrite::Webhook.retrieve('webhook_id')
 
 # Create a Webhook.
-# See above link for supported parameters. 
+# See above link for supported parameters.
 Eventbrite::Webhook.create({endpoint_url: 'your_webhooks_endpoint_url'})
 
 # Delete a Webhook.
@@ -236,7 +236,7 @@ Eventbrite::Webhook.delete('webhook_id')
 
 ## Todo
 
-* Event Atteedees' Details API should support parameters
+* Event Attendees' Details API should support parameters
 * POST/UPDATE/DELETE request for the API
 * Support for chained method
 
