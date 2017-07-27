@@ -72,17 +72,17 @@ module Eventbrite
       payload = uri_encode(params)
     end
 
-    request_opts = {
-      headers: request_headers(token),
+    # request_opts = {
+      
+    # }
+
+    begin
+      response = execute_request(headers: request_headers(token),
       method: method,
       open_timeout: 30,
       payload: payload,
       url: url,
-      timeout: 120
-    }
-
-    begin
-      response = execute_request(request_opts)
+      timeout: 120)
     rescue RestClient::ExceptionWithResponse => e
       if rcode = e.http_code and rbody = e.http_body
         handle_api_error(rcode, rbody)
