@@ -1,5 +1,4 @@
 require 'rest_client'
-require 'hashie'
 
 # Version
 require 'eventbrite/version'
