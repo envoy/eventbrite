@@ -233,6 +233,19 @@ Eventbrite::Webhook.create({endpoint_url: 'your_webhooks_endpoint_url'})
 Eventbrite::Webhook.delete('webhook_id')
 
 ```
+### [Expansions](https://www.eventbrite.com/developer/v3/api_overview/expansions/)
+
+```ruby
+# For supported expansions, check out the link above.
+# Required parameters dependent on method called, refer to methods covered above for required parameters
+
+# Retrieve venue information with events
+Eventbrite::User.owned_events({ user_id: 'user_id', expand: 'venue' })
+
+# Retrieve organizer and venue information with events
+Eventbrite::User.owned_events({ user_id: 'user_id', expand: 'organizer,venue' })
+```
+
 
 ## Todo
 
