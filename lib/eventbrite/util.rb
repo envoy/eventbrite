@@ -8,6 +8,7 @@ module Eventbrite
         orders: Order,
         discouns: Discount,
         access_codes: AccessCode,
+        ticket_classes: TicketClass,
         transfers: Transfer,
         teams: Team,
         webhooks: Webhook
