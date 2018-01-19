@@ -119,6 +119,13 @@ Eventbrite::Discount.all({ event_id: 'event_id' })
 Eventbrite::AccessCode.all({ event_id: 'event_id' })
 ```
 
+### [Event Ticket Classes](https://www.eventbrite.com/developer/v3/endpoints/events/#ebapi-get-events-id-ticket-classes)
+
+```ruby
+# The parameter `event_id` is required.
+Eventbrite::TicketClass.all({ event_id: 'event_id' })
+```
+
 ### [Event Transfers](http://developer.eventbrite.com/docs/event-transfers/)
 
 ```ruby
