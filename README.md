@@ -158,14 +158,14 @@ Eventbrite::Team.attendees('event_id', 'team_id')
 Eventbrite::User.retrieve('user_id')
 ```
 
-### [User Orders](http://developer.eventbrite.com/docs/user-orders/)
+### [User Orders (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # The parameter `user_id` is required.
 Eventbrite::User.orders({ user_id: 'user_id' })
 ```
 
-### [User Owned Events](http://developer.eventbrite.com/docs/user-owned-events/)
+### [User Owned Events (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # For supported parameters, check out the link above.
@@ -173,7 +173,7 @@ Eventbrite::User.orders({ user_id: 'user_id' })
 Eventbrite::User.owned_events({ user_id: 'user_id' })
 ```
 
-### [User Owned Events’ Orders](http://developer.eventbrite.com/docs/user-owned-events-orders/)
+### [User Owned Events’ Orders (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # For supported parameters, check out the link above.
@@ -181,7 +181,7 @@ Eventbrite::User.owned_events({ user_id: 'user_id' })
 Eventbrite::User.owned_event_orders({ user_id: 'user_id' })
 ```
 
-### [User Owned Event’s Attendees](http://developer.eventbrite.com/docs/user-owned-events-attendees/)
+### [User Owned Event’s Attendees (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # For supported parameters, check out the link above.
@@ -189,7 +189,7 @@ Eventbrite::User.owned_event_orders({ user_id: 'user_id' })
 Eventbrite::User.owned_event_attendees({ user_id: 'user_id' })
 ```
 
-### [User Venues](http://developer.eventbrite.com/docs/user-venues/)
+### [User Venues (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # Retrieve a User’s Venues
@@ -199,11 +199,73 @@ Eventbrite::User.venues({ user_id: 'user_id' })
 Eventbrite::Venue.retrieve('venue_id')
 ```
 
-### [User Organizers](http://developer.eventbrite.com/docs/user-organizers/)
+### [User Organizers (DEPRECATED)](https://www.eventbrite.com/platform/docs/changelog)
 
 ```ruby
 # The parameter `user_id` is required.
 Eventbrite::User.organizers({ user_id: 'user_id' })
+```
+
+ ### [User Organizations](https://www.eventbrite.com/platform/api#/reference/organization/list-your-organizations/list-your-organizations)
+
+```ruby
+# Retrieve an User’s Organizations
+# You will need the users organization ID to retrieve resources from the organization endpoints.
+# You can use 'me' as a user_id to retrieve your organizations.
+Eventbrite::User.organizations({ user_id: 'user_id' })
+```
+
+### [Organization Events](https://www.eventbrite.com/platform/api#/reference/event/update/list-events-by-organization)
+
+```ruby
+# Retrieve an Organization’s Events
+# For supported parameters, check out the link above.
+# Also, the parameter `organization_id` is required.
+Eventbrite::Organization.events({ organization_id: 'organization_id' })
+```
+
+### [Organization Orders](https://www.eventbrite.com/platform/api#/reference/order/retrieve/list-orders-by-organization-id)
+
+```ruby
+# Retrieve an Organization’s Orders
+# For supported parameters, check out the link above.
+# Also, the parameter `organization_id` is required.
+Eventbrite::Organization.orders({ organization_id: 'organization_id' })
+```
+
+### [Organization Attendees](https://www.eventbrite.com/platform/api#/reference/attendee/list-attendees-by-organization)
+
+```ruby
+# Retrieve an Organization’s Attendees
+# For supported parameters, check out the link above.
+# Also, the parameter `organization_id` is required.
+Eventbrite::Organization.attendees({ organization_id: 'organization_id' })
+```
+
+### [Organization Venues](https://www.eventbrite.com/platform/api#/reference/venue/list/list-venues-by-organization)
+
+```ruby
+# Retrieve an Organization’s Venues
+# The parameter `organization_id` is required.
+Eventbrite::Organization.venues({ organization_id: 'organization_id' })
+# Retrieve a Venue
+Eventbrite::Venue.retrieve('venue_id')
+```
+
+### [Organization Webhooks](https://www.eventbrite.com/platform/api#/reference/webhooks/list/list-webhook-by-organization-id)
+
+```ruby
+# Retrieve an Organization’s Webhooks
+# The parameter `organization_id` is required.
+Eventbrite::Organization.webhooks({ organization_id: 'organization_id' })
+```
+
+### [Organization Organizers](https://www.eventbrite.com/platform/docs/changelog)
+
+```ruby
+# Retrieve an Organization’s Organizers
+# The parameter `organization_id` is required.
+Eventbrite::Organization.organizers({ organization_id: 'organization_id' })
 ```
 
 ### [Order Details](http://developer.eventbrite.com/docs/order-details/)
@@ -271,3 +333,4 @@ Eventbrite::User.owned_events({ user_id: 'user_id', expand: 'organizer,venue' })
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+

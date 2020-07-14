@@ -27,6 +27,7 @@ require 'eventbrite/resources/team'
 require 'eventbrite/resources/contact_list'
 require 'eventbrite/resources/venue'
 require 'eventbrite/resources/webhook'
+require 'eventbrite/resources/organization'
 
 # Errors
 require 'eventbrite/errors/eventbrite_error'
