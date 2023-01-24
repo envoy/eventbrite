@@ -60,7 +60,8 @@ module Eventbrite
     end
 
     def self.url_encode(key)
-      URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+      parser = URI.const_defined?(:Parser) ? URI::Parser.new : URI
+      parser.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
     end
 
     def self.flatten_params(params, parent_key=nil)
